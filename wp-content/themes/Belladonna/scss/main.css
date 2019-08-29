@@ -203,7 +203,7 @@ body.home #headergroup {
   z-index: 50;
   top: 0;
   right: 0;
-  position: absolute; }
+  position: fixed; }
   body.home #headergroup .menu-main_nav-container ul {
     margin: 50px 50px 0 0;
     text-align: right;
@@ -222,7 +222,8 @@ body.home #headergroup {
         padding-bottom: 2px;
         color: white;
         font-size: 1.666em;
-        /* 30px */ }
+        /* 30px */
+        text-shadow: rgba(0, 0, 0, 0.15) 2px 3px 5px; }
         body.home #headergroup .menu-main_nav-container ul li a:hover {
           border-bottom: 2px solid white; }
         @media (max-width: 700px) {
@@ -235,7 +236,7 @@ body.home #headergroup {
             /* 16px */ } }
 
 body.home #site_title {
-  position: absolute;
+  position: fixed;
   z-index: 50;
   top: 50px;
   left: 50px;
@@ -355,14 +356,18 @@ a.block_btn, a.booking_btn {
   padding: 0; }
 
 .hero_image_slider {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   overflow: hidden; }
 
+.home_slide:nth-of-type(1) {
+  transition: none; }
+
 .home_slide {
-  position: absolute;
-  top: 100vh; }
+  position: fixed;
+  top: 100vh;
+  transition: all 0.5s ease; }
   .home_slide img {
     object-fit: cover;
     object-position: 50% 50%;
@@ -375,7 +380,8 @@ a.block_btn, a.booking_btn {
     color: white;
     width: 70px;
     font-size: 3.33333em;
-    /* 60px */ }
+    /* 60px */
+    text-shadow: rgba(0, 0, 0, 0.1) 3px 4px 6px; }
     @media (max-width: 700px) {
       .home_slide .home_gallery_title {
         font-size: 2em;
@@ -385,6 +391,11 @@ a.block_btn, a.booking_btn {
 
 .home_slide.active {
   top: 0; }
+
+.scroll_box {
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(400px);
+  scroll-snap-type: y mandatory; }
 
 /* Page Block Styles
 ----------------------------------------------------------------------------------------*/

@@ -29,6 +29,8 @@
             </div><!--.home_slider-->
         </div><!--.hero_image_slider-->
 
+        <div class="scroll_box"></div>
+
 
     <?php endif;?>
 
