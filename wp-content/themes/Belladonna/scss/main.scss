@@ -362,47 +362,47 @@ h1.page-title {
 	}
 }
 
-h1.page-title.Green {
+h1.page-title.Green, .block_image_left h2.Green {
 	color: $green;
 }
-h1.page-title.Blue {
+h1.page-title.Blue, .block_image_left h2.Blue {
 	color: $blue;
 }
-h1.page-title.Pink {
+h1.page-title.Pink, .block_image_left h2.Pink {
 	color: $pink;
 }
-h1.page-title.Lavender {
+h1.page-title.Lavender, .block_image_left h2.Lavender {
 	color: $lavender;
 }
-h1.page-title.Orange {
+h1.page-title.Orange, .block_image_left h2.Orange {
 	color: $orange;
 }
-h1.page-title.Red {
+h1.page-title.Red, .block_image_left h2.Red {
 	color: $red;
 }
-h1.page-title.Grey {
+h1.page-title.Grey, .block_image_left h2.Grey {
 	color: $grey;
 }
 
-.booking_btn.Green, .block_info.Green {
+.booking_btn.Green, .block_info.Green, .block_btn.Green {
 	background-color: $green;
 }
-.booking_btn.Blue, .block_info.Blue {
+.booking_btn.Blue, .block_info.Blue, .block_btn.Blue {
 	background-color: $blue;
 }
-.booking_btn.Pink, .block_info.Pink {
+.booking_btn.Pink, .block_info.Pink, .block_btn.Pink {
 	background-color: $pink;
 }
-.booking_btn.Lavender, .block_info.Lavender {
+.booking_btn.Lavender, .block_info.Lavender, .block_btn.Lavender {
 	background-color: $lavender;
 }
-.booking_btn.Orange, .block_info.Orange {
+.booking_btn.Orange, .block_info.Orange, .block_btn.Orange {
 	background-color: $orange;
 }
-.booking_btn.Red, .block_info.Red {
+.booking_btn.Red, .block_info.Red, .block_btn.Red {
 	background-color: $red;
 }
-.booking_btn.Grey, .block_info.Grey {
+.booking_btn.Grey, .block_info.Grey, .block_btn.Grey {
 	background-color: $grey;
 }
 
@@ -565,6 +565,71 @@ body.home {
 	    min-width: 100%;
 	    min-height: 100%
 		}
+	}
+}
+
+.image_block.right {
+	flex-direction: row-reverse;
+
+	@media (max-width: 700px) {
+		flex-direction: column;
+	}
+
+	.block_image_left {
+		margin: 30px 0 0 -5%;
+
+		.text_info {
+			margin-left: 20%;
+
+			@media (max-width: 700px) {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.block_image_left {
+	width: 55%;
+	margin: 30px -5% 0 0;
+	z-index: 2;
+	position: relative;
+
+	.text_info {
+		width: 80%;
+		margin-top: 30px;
+
+		@media (max-width: 700px) {
+			width: 100%;
+		}
+	}
+
+	a.block_btn {
+		color: white !important;
+		margin-top: 30px;
+		display: inline-block;
+		margin-top: 12px;
+		&:hover {
+			background-color: $black;
+		}
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.7777em; /* 32px */
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.block_image_right {
+	width: 55%;
+
+	img {
+		width: 100%;
+		height: auto;
 	}
 }
 

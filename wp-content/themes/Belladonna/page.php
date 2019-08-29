@@ -55,6 +55,45 @@ $page_blocks = get_field('page_blocks');
                         </div><!--.block_image-->
                     </div><!--.image_block-->
                 <?php endif; ?>
+                <!-- Double Image block -->
+                <?php if (get_row_layout() == 'double_image_block'): ?>
+                    <div class="main_section_wrapper">
+                        <div class="main_content">
+                            <?php if (get_sub_field('text_right') == '1'):
+                                $text_right = 'right';
+                            else:
+                               $text_right = '';
+                            endif; ?>
+                            <div class="image_block  <?php echo $text_right;?>">
+                                <div class="block_image_left">
+                                    <?php if (get_sub_field('block_image')): ?>
+                                        <?php $block_image = get_sub_field('block_image'); ?>
+                                        <?php $image_block_left = wp_get_attachment_image_src($block_image, 'col-medium-wide' ); ?>
+                                        <img src="<?php echo $image_block_left[0]; ?>" />
+                                    <?php endif; ?>
+                                    <div class="text_info">
+                                        <?php if (get_sub_field('block_title')): ?>
+                                            <h2 class="<?= $page_color ?>"><?= the_sub_field('block_title') ?></h2>
+                                        <?php endif; ?>
+                                        <?php if (get_sub_field('block_description')): ?>
+                                            <p><?= the_sub_field('block_description') ?></p>
+                                        <?php endif; ?>
+                                        <?php if (get_sub_field('block_link')): ?>
+                                            <a href="<?= the_sub_field('block_link') ?>" class="block_btn <?= $page_color ?>"><?= the_sub_field('block_link_title') ?></a>
+                                        <?php endif; ?>
+                                    </div><!--.text_info-->
+                                </div><!--.block_image_left-->
+                                <div class="block_image_right">
+                                    <?php if (get_sub_field('block_image_2')): ?>
+                                        <?php $block_image_2 = get_sub_field('block_image_2'); ?>
+                                        <?php $image_block_right = wp_get_attachment_image_src($block_image_2, 'col-medium' ); ?>
+                                        <img src="<?php echo $image_block_right[0]; ?>" />
+                                    <?php endif; ?>
+                                </div><!--.block_image_right-->
+                            </div><!--.image_block-->
+                        </div><!--.main_content-->
+                    </div><!--.main_section_wrapper-->
+                <?php endif; ?>
                 <!-- Text block -->
                 <?php if (get_row_layout() == 'text_block'): ?>
                     <div class="main_section_wrapper">

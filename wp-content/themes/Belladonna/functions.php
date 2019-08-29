@@ -104,6 +104,8 @@ if ( function_exists( 'add_image_size' ) ) {
   add_image_size( 'home_slide-large', 1440, 960, true); // Used for large home page slides and background images
   add_image_size( 'header-large', 1440, 730, true); // Used for large page intro images
   add_image_size( 'item-medium', 460, 400, true); // Used for booking item images
+  add_image_size( 'col-medium-wide', 620, 388, true); // Used for two col block images
+  add_image_size( 'col-medium', 566, 548, true); // Used for two col block images
   add_image_size( 'block-medium', 936, 542, true); // Used for block images
 }
 
