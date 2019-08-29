@@ -16,6 +16,38 @@
 		"oAP": "/404.php",
 		"oF": 0
 		},
+	"/acf-json/group_5d54a83af2ca6.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5d54a83af2ca6-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5d5ab6d7c5934.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5d5ab6d7c5934-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5d5d5bb574a74.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5d5d5bb574a74-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/acf-json/group_5d65297ac4983.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/acf-json/group_5d65297ac4983-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
 	"/archive.php": {
 		"cB": 0,
 		"ft": 8192,

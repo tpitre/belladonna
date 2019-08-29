@@ -13,49 +13,108 @@ $page_blocks = get_field('page_blocks');
         <img src="<?php echo $header_image[0]; ?>" class="header_image" />
     <?php endif; ?>
 
-    <div class="main_section_wrapper section_<?php the_ID(); ?>">
+    <div class="main_section_wrapper">
         <h1 class="page-title <?= $page_color ?>"><?php the_title(); ?></h1>
         <div class="main_content">
             <?php if (get_the_content()): ?>
                 <?php the_content();?>
             <?php endif; ?>
+        </div><!--.main_content-->
 
-            <?php if ($page_blocks): ?>
-                <?php while(has_sub_field('page_blocks')): ?>
-                    <div class="section_blocks">
-                        <!-- Image blocks -->
-                        <?php if (get_row_layout() == 'image_block'): ?>
-                            <?php $block_color = get_sub_field('block_color');
-                            if (get_sub_field('image_left') == '1'):
-                                $image_left = 'left';
+    </div><!--.main_section_wrapper-->
+
+    <?php if ($page_blocks): ?>
+        <?php while(has_sub_field('page_blocks')): ?>
+            <div class="section_blocks">
+                <!-- Image block -->
+                <?php if (get_row_layout() == 'image_block'): ?>
+                    <?php $block_color = get_sub_field('block_color');
+                    if (get_sub_field('image_left') == '1'):
+                        $image_left = 'left';
+                    else:
+                       $image_left = '';
+                    endif; ?>
+                    <div class="image_block  <?php echo $image_left;?>">
+                        <div class="block_info <?= $block_color ?>">
+                            <?php if (get_sub_field('block_title')): ?>
+                                <h2><?= the_sub_field('block_title') ?></h2>
+                            <?php endif; ?>
+                            <?php if (get_sub_field('block_description')): ?>
+                                <p><?= the_sub_field('block_description') ?></p>
+                            <?php endif; ?>
+                            <?php if (get_sub_field('block_link')): ?>
+                                <a href="<?= the_sub_field('block_link') ?>" class="block_btn"><?= the_sub_field('block_link_title') ?></a>
+                            <?php endif; ?>
+                        </div><!--.block_image-->
+                        <div class="block_image">
+                            <?php if (get_sub_field('block_image')): ?>
+                                <?php $block_image = get_sub_field('block_image'); ?>
+                                <?php $image_block = wp_get_attachment_image_src($block_image, 'block-medium' ); ?>
+                                <img src="<?php echo $image_block[0]; ?>" />
+                            <?php endif; ?>
+                        </div><!--.block_image-->
+                    </div><!--.image_block-->
+                <?php endif; ?>
+                <!-- Double Image block -->
+                <?php if (get_row_layout() == 'double_image_block'): ?>
+                    <div class="main_section_wrapper">
+                        <div class="main_content">
+                            <?php if (get_sub_field('text_right') == '1'):
+                                $text_right = 'right';
                             else:
-                               $image_left = '';
+                               $text_right = '';
                             endif; ?>
-                            <div class="image_block  <?php echo $image_left;?>">
-                                <div class="block_info <?= $block_color ?>">
-                                    <?php if (get_sub_field('block_title')): ?>
-                                        <h2><?= the_sub_field('block_title') ?></h2>
-                                    <?php endif; ?>
-                                    <?php if (get_sub_field('block_description')): ?>
-                                        <p><?= the_sub_field('block_description') ?></p>
-                                    <?php endif; ?>
-                                    <?php if (get_sub_field('block_link')): ?>
-                                        <a href="<?= the_sub_field('block_link') ?>" class="block_btn"><?= the_sub_field('block_link_title') ?></a>
-                                    <?php endif; ?>
-                                </div><!--.block_image-->
-                                <div class="block_image">
+                            <div class="image_block  <?php echo $text_right;?>">
+                                <div class="block_image_left">
                                     <?php if (get_sub_field('block_image')): ?>
                                         <?php $block_image = get_sub_field('block_image'); ?>
-                                        <?php $image_block = wp_get_attachment_image_src($block_image, 'block-medium' ); ?>
-                                        <img src="<?php echo $image_block[0]; ?>" />
+                                        <?php $image_block_left = wp_get_attachment_image_src($block_image, 'col-medium-wide' ); ?>
+                                        <img src="<?php echo $image_block_left[0]; ?>" />
                                     <?php endif; ?>
-                                </div><!--.block_image-->
+                                    <div class="text_info">
+                                        <?php if (get_sub_field('block_title')): ?>
+                                            <h2 class="<?= $page_color ?>"><?= the_sub_field('block_title') ?></h2>
+                                        <?php endif; ?>
+                                        <?php if (get_sub_field('block_description')): ?>
+                                            <p><?= the_sub_field('block_description') ?></p>
+                                        <?php endif; ?>
+                                        <?php if (get_sub_field('block_link')): ?>
+                                            <a href="<?= the_sub_field('block_link') ?>" class="block_btn <?= $page_color ?>"><?= the_sub_field('block_link_title') ?></a>
+                                        <?php endif; ?>
+                                    </div><!--.text_info-->
+                                </div><!--.block_image_left-->
+                                <div class="block_image_right">
+                                    <?php if (get_sub_field('block_image_2')): ?>
+                                        <?php $block_image_2 = get_sub_field('block_image_2'); ?>
+                                        <?php $image_block_right = wp_get_attachment_image_src($block_image_2, 'col-medium' ); ?>
+                                        <img src="<?php echo $image_block_right[0]; ?>" />
+                                    <?php endif; ?>
+                                </div><!--.block_image_right-->
                             </div><!--.image_block-->
-                        <?php endif; ?>
-                    </div><!--.section_blocks-->
-                <?php endwhile; ?>
-            <?php endif; ?>
+                        </div><!--.main_content-->
+                    </div><!--.main_section_wrapper-->
+                <?php endif; ?>
+                <!-- Text block -->
+                <?php if (get_row_layout() == 'text_block'): ?>
+                    <div class="main_section_wrapper">
+                        <div class="main_content">
+                            <div class="text_block">
+                                <?php if (get_sub_field('block_title')): ?>
+                                    <h2><?= the_sub_field('block_title') ?></h2>
+                                <?php endif; ?>
+                                <?php if (get_sub_field('block_description')): ?>
+                                    <p><?= the_sub_field('block_description') ?></p>
+                                <?php endif; ?>
+                            </div><!--.text_block-->
+                        </div><!--.main_content-->
+                    </div><!--.main_section_wrapper-->
+                <?php endif; ?>
+            </div><!--.section_blocks-->
+        <?php endwhile; ?>
+    <?php endif; ?>
 
+    <div class="main_section_wrapper">
+        <div class="main_content">
             <?php if ($menu_section): ?>
                 <?php foreach($menu_section as $section): ?>
 
@@ -109,13 +168,11 @@ $page_blocks = get_field('page_blocks');
                             <?php endforeach; ?>
                             </div><!--.menu_all_items-->
                         <?php endif; ?>
-
                     </div><!--.menu_section-->
 
                 <?php endforeach; ?>
             <?php endif; ?>
         </div><!--.main_content-->
-
     </div><!--.main_section_wrapper-->
 
 </div><!-- #main -->

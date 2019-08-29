@@ -268,7 +268,7 @@ body.home {
 		z-index: 50;
 		top: 0;
 		right: 0;
-		position: absolute;
+		position: fixed;
 
 		.menu-main_nav-container {
 			ul {
@@ -293,6 +293,7 @@ body.home {
 						padding-bottom: 2px;
 						color: white;
 						font-size: 1.666em; /* 30px */
+						text-shadow: rgba(0,0,0,0.15) 2px 3px 5px;
 
 						&:hover {
 							border-bottom: 2px solid white;
@@ -309,7 +310,7 @@ body.home {
 		}
 	}
 	#site_title {
-		position: absolute;
+		position: fixed;
 		z-index: 50;
 		top: 50px;
 		left: 50px;
@@ -362,47 +363,47 @@ h1.page-title {
 	}
 }
 
-h1.page-title.Green {
+h1.page-title.Green, .block_image_left h2.Green {
 	color: $green;
 }
-h1.page-title.Blue {
+h1.page-title.Blue, .block_image_left h2.Blue {
 	color: $blue;
 }
-h1.page-title.Pink {
+h1.page-title.Pink, .block_image_left h2.Pink {
 	color: $pink;
 }
-h1.page-title.Lavender {
+h1.page-title.Lavender, .block_image_left h2.Lavender {
 	color: $lavender;
 }
-h1.page-title.Orange {
+h1.page-title.Orange, .block_image_left h2.Orange {
 	color: $orange;
 }
-h1.page-title.Red {
+h1.page-title.Red, .block_image_left h2.Red {
 	color: $red;
 }
-h1.page-title.Grey {
+h1.page-title.Grey, .block_image_left h2.Grey {
 	color: $grey;
 }
 
-.booking_btn.Green, .block_info.Green {
+.booking_btn.Green, .block_info.Green, .block_btn.Green {
 	background-color: $green;
 }
-.booking_btn.Blue, .block_info.Blue {
+.booking_btn.Blue, .block_info.Blue, .block_btn.Blue {
 	background-color: $blue;
 }
-.booking_btn.Pink, .block_info.Pink {
+.booking_btn.Pink, .block_info.Pink, .block_btn.Pink {
 	background-color: $pink;
 }
-.booking_btn.Lavender, .block_info.Lavender {
+.booking_btn.Lavender, .block_info.Lavender, .block_btn.Lavender {
 	background-color: $lavender;
 }
-.booking_btn.Orange, .block_info.Orange {
+.booking_btn.Orange, .block_info.Orange, .block_btn.Orange {
 	background-color: $orange;
 }
-.booking_btn.Red, .block_info.Red {
+.booking_btn.Red, .block_info.Red, .block_btn.Red {
 	background-color: $red;
 }
-.booking_btn.Grey, .block_info.Grey {
+.booking_btn.Grey, .block_info.Grey, .block_btn.Grey {
 	background-color: $grey;
 }
 
@@ -422,23 +423,22 @@ h1.page-title.Grey {
 
 		a.block_btn, a.booking_btn {
 			border-bottom: none;
-			font-family: bebas-neue, sans-serif;
-			text-transform: uppercase;
-			font-size: 1.33333em; /* 24px */
-			letter-spacing: 0.15em;
-			padding: 10px 18px;
-			border-radius: 10px;
-
-			&:hover {
-				background-color: $black;
-				color: white;
-			}
 		}
 
 		p {
 			max-width: 750px;
 		}
 	}
+}
+
+a.block_btn, a.booking_btn {
+	border-bottom: none;
+	font-family: bebas-neue, sans-serif;
+	text-transform: uppercase;
+	font-size: 1.33333em; /* 24px */
+	letter-spacing: 0.15em;
+	padding: 10px 18px;
+	border-radius: 10px;
 }
 
 #main {
@@ -460,20 +460,21 @@ h1.page-title.Grey {
 	padding: 0;
 }
 
-body.home {
-
-}
-
 .hero_image_slider {
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 }
 
+.home_slide:nth-of-type(1) {
+	transition: none;
+}
+
 .home_slide {
-	position: absolute;
+	position: fixed;
 	top: 100vh;
+	transition: all 0.5s ease;
 
 	img {
 		object-fit: cover;
@@ -489,6 +490,7 @@ body.home {
 		color: white;
 		width: 70px;
 		font-size: 3.33333em; /* 60px */
+		text-shadow: rgba(0,0,0,0.1) 3px 4px 6px;
 
 		@media (max-width: 700px) {
 			font-size: 2em; /* 36px */
@@ -500,6 +502,12 @@ body.home {
 
 .home_slide.active {
 	top: 0;
+}
+
+.scroll_box {
+	scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(400px);
+  scroll-snap-type: y mandatory;
 }
 
 
@@ -522,11 +530,13 @@ body.home {
 	}
 
 	.block_info {
-		color: white;
+		color: $black;
 		padding: 50px;
+		width: 33.33333%;
 
 		@media (max-width: 700px) {
 			padding: 30px;
+			width: 100%;
 		}
 
 		.block_btn {
@@ -535,17 +545,20 @@ body.home {
 			margin-top: 30px;
 			display: inline-block;
 			margin-top: 12px;
+			&:hover {
+				background-color: $black;
+				color: white;
+			}
 		}
 
 		h2 {
-			color: white;
 			margin: 0;
 			font-size: 1.7777em; /* 32px */
 		}
 	}
 
 	.block_image {
-		width: 150%;
+		width: 66.66666%;
 		display: flex;
     justify-content: center;
     align-items: center;
@@ -561,6 +574,71 @@ body.home {
 	    min-width: 100%;
 	    min-height: 100%
 		}
+	}
+}
+
+.image_block.right {
+	flex-direction: row-reverse;
+
+	@media (max-width: 700px) {
+		flex-direction: column;
+	}
+
+	.block_image_left {
+		margin: 30px 0 0 -5%;
+
+		.text_info {
+			margin-left: 20%;
+
+			@media (max-width: 700px) {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.block_image_left {
+	width: 55%;
+	margin: 30px -5% 0 0;
+	z-index: 2;
+	position: relative;
+
+	.text_info {
+		width: 80%;
+		margin-top: 30px;
+
+		@media (max-width: 700px) {
+			width: 100%;
+		}
+	}
+
+	a.block_btn {
+		color: white !important;
+		margin-top: 30px;
+		display: inline-block;
+		margin-top: 12px;
+		&:hover {
+			background-color: $black;
+		}
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.7777em; /* 32px */
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.block_image_right {
+	width: 55%;
+
+	img {
+		width: 100%;
+		height: auto;
 	}
 }
 
