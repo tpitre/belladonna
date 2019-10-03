@@ -1,0 +1,19 @@
+name: belladonna
+recipe: wordpress
+config:
+  webroot: .
+  env: dev
+  xdebug: true
+  via: nginx
+proxy:
+  mailhog:
+    - mail.belladonna.lndo.site
+services:
+  appserver:
+    composer:
+      phpunit/phpunit: '*'
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+    portforward: true
