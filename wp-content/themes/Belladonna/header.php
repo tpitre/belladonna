@@ -33,7 +33,7 @@
 
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
-    <link href="<?php bloginfo('template_url'); ?>/scss/main.css?v=0.1" rel="stylesheet" type="text/css" />
+    <link href="<?php bloginfo('template_url'); ?>/css/main.css?v=0.1" rel="stylesheet" type="text/css" />
 
 
     <link rel="profile" href="http://gmpg.org/xfn/11" />

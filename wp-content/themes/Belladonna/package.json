@@ -1,0 +1,33 @@
+{
+  "name": "belladonna",
+  "version": "1.0.0",
+  "description": "Belladonna spa site.",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.0.8",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": ">=1.2.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-watch": "^5.0.1"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp sass",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tpitre/belladonna.git"
+  },
+  "author": "Ben Voran, TJ Pitre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tpitre/belladonna"
+  }
+}
