@@ -303,7 +303,49 @@ function bootstrapwp_enhanced_image_navigation( $url ) {
 add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 
 
-
+/*
+| -------------------------------------------------------------------
+| Registering promo post type
+| -------------------------------------------------------------------
+|
+*/
+function post_type_promo() {
+	$supports = array(
+	'title', // post title
+	'editor', // post content
+	'author', // post author
+	'thumbnail', // featured images
+	'excerpt', // post excerpt
+	'custom-fields', // custom fields
+	'revisions', // post revisions
+	);
+	$labels = array(
+	'name' => _x('promo', 'plural'),
+	'singular_name' => _x('promo', 'singular'),
+	'menu_name' => _x('Promo', 'admin menu'),
+	'name_admin_bar' => _x('Promo', 'admin bar'),
+	'add_new' => _x('Add New', 'add new'),
+	'add_new_item' => __('Add New promo'),
+	'new_item' => __('New promo'),
+	'edit_item' => __('Edit promo'),
+	'view_item' => __('View promo'),
+	'all_items' => __('All promo'),
+	'search_items' => __('Search promo'),
+	'not_found' => __('No promo found.'),
+	);
+	$args = array(
+	'show_in_rest' => true,
+	'supports' => $supports,
+	'labels' => $labels,
+	'public' => true,
+	'query_var' => true,
+	'rewrite' => array('slug' => 'promo'),
+	'has_archive' => true,
+	'hierarchical' => false,
+	);
+	register_post_type('promo', $args);
+}
+add_action('init', 'post_type_promo');
 
 
 
