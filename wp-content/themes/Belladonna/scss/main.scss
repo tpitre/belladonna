@@ -322,6 +322,10 @@ body.home {
 	}
 }
 
+body.home .has-promos #headergroup {
+	top: 40px;
+}
+
 #site_title {
 	width: 180px;
 	margin: 60px auto;
@@ -743,3 +747,97 @@ input[type=text] {
 
 }
 
+
+/* Promos
+----------------------------------------------------------------------------------------*/
+
+.promo-carousel {
+	position: relative;
+	width:100%;
+	height: 40px;
+	background-color: $green;
+	margin-bottom: -40px;
+	z-index: 1;
+
+	&__btns {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+
+	&__prev,
+	&__next {
+		width: 50px;
+		@media (max-width: 900px) {
+			width: 100px;
+		}
+		position: absolute;
+		color: white;
+		line-height: 40px;
+		text-align: center;
+	}
+
+	&__prev {
+		left: 0;
+	}
+
+	&__next {
+		right: 0;
+	}
+
+	&__slides {
+		margin: 0 auto;
+		overflow: hidden;
+		position: relative;
+		width: calc(100% - 100px);
+		height: 100%;
+		@media (max-width: 900px) {
+			width: calc(100% - 200px);
+		}
+
+		ul {
+			width:100%;
+			height:100%;
+			margin: 0;
+			padding: 0;
+			position: relative;
+		}
+	}
+
+	&__slide {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		position: absolute;
+		display: flex;
+		top: 0px;
+		left: 0px;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		transition: 0.3s opacity linear;
+
+		&.active {
+			opacity: 1;
+		}
+
+		&__msg {
+			color: white;
+			padding: 0 5px;
+		}
+
+		&__cta {
+			color: white;
+			padding: 0 5px;
+			p {
+				display: inline;
+			}
+
+			a {
+				text-decoration: underline;
+				color: white;
+			}
+		}
+	}
+}

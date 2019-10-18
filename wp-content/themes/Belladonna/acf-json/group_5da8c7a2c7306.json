@@ -1,0 +1,83 @@
+{
+    "key": "group_5da8c7a2c7306",
+    "title": "Promo",
+    "fields": [
+        {
+            "key": "field_5da8ccb9ff639",
+            "label": "Start Date",
+            "name": "start_date",
+            "type": "date_picker",
+            "instructions": "Choose an end date for this promotion",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "m\/d\/Y",
+            "return_format": "m\/d\/Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_5da8c7b548fab",
+            "label": "End Date",
+            "name": "end_date",
+            "type": "date_picker",
+            "instructions": "Choose an end date for this promotion",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "m\/d\/Y",
+            "return_format": "m\/d\/Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_5da8c97004a43",
+            "label": "Page to Display",
+            "name": "page_to_display",
+            "type": "relationship",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": 1,
+            "max": "",
+            "return_format": "object"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "promo"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1571359729
+}
