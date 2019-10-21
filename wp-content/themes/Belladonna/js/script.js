@@ -65,7 +65,7 @@ $(document).ready(function() {
 						span.style[ transitionProp + 'Delay' ] = ( i * 200 ) + 'ms';
 					}
 					slideTitleElement.classList.add('top');
-					setTimeout(function(){slideTitleElement.classList.add('fade-in')}, 300);
+					setTimeout(function(){slideTitleElement.classList.add('fade-in')}, 100);
 				});
 				slideTitleElement.classList.remove('top');
 			}
