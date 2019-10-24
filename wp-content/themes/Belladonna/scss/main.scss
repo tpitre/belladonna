@@ -751,10 +751,6 @@ body.home #footer {
 		display: block;
 	}
 
-	.footer_contact {
-		text-align: center;
-	}
-
 	.copyright {
 		font-size: 0.7em;
 		line-height: 1.7em;
@@ -766,6 +762,26 @@ body.home #footer {
 		@media (max-width: 1000px) {
 			padding-top: 24px;
 		}
+	}
+}
+
+.footer_blocks {
+	display: flex;
+	max-width: 900px;
+	margin: 0 auto 50px auto;
+	justify-content: space-between;
+	> * {
+		max-width: 300px;
+		width: 33%;
+	}
+	.footer_contact {
+		text-align: center;
+	}
+	.footer_hours {
+
+	}
+	.footer_signup {
+		text-align: center;
 	}
 }
 
