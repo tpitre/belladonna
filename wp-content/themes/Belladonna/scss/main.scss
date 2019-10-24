@@ -249,6 +249,7 @@ img.alignright, img.alignleft, img.aligncenter, img.alignnone {
 			font-size: 2em; /* 36px */
 			color: $grey;
 			border-bottom: none;
+			text-transform: uppercase;
 
 			&:hover {
 				border-bottom: 2px solid $grey;
@@ -611,6 +612,9 @@ body.home {
 .menu_section {
 	.section_intro {
 		font-size: 1.11111em;  /* 20px */
+	}
+	h2 {
+		text-transform: uppercase;
 	}
 }
 
