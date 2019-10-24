@@ -4,6 +4,10 @@ $page_header_image = get_field('page_header_image');
 $page_color = get_field('page_color');
 $menu_section = get_field('menu_section');
 $page_blocks = get_field('page_blocks');
+function format_section_title($str) {
+    return str_replace(array(' '), '-', strtolower(trim($str)));
+}
+
 ?>
 
 <div id="main">
@@ -56,10 +60,18 @@ $page_blocks = get_field('page_blocks');
                 <?php endwhile; ?>
             <?php endif; ?>
 
+            <?php if (get_the_ID() === 7): ?>
+                <div class="c-section-nav">
+                    <?php foreach($menu_section as $section): ?>
+                        <a class="c-section-nav__link" href="#<?= format_section_title($section['section_title']) ?>"><?= $section['section_title'] ?></a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
             <?php if ($menu_section): ?>
                 <?php foreach($menu_section as $section): ?>
 
-                    <div class="menu_section">
+                    <div class="menu_section" <?php print get_the_ID() === 7 ? 'id="' . format_section_title($section['section_title']) . '"' : ''; ?>>
                         <?php if($section['section_title']): ?>
                             <h2><?= $section['section_title'] ?></h2>
                         <?php endif; ?>

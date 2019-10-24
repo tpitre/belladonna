@@ -597,6 +597,17 @@ body.home {
 
 /* Menu Styles
 ----------------------------------------------------------------------------------------*/
+
+.c-section-nav {
+	&__link {
+		display: inline-block;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-family: bebas-neue, sans-serif;
+		margin-right: 15px;
+	}
+}
+
 .menu_section {
 	.section_intro {
 		font-size: 1.11111em;  /* 20px */
