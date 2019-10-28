@@ -235,18 +235,37 @@ img.alignright, img.alignleft, img.aligncenter, img.alignnone {
 
 /* Header Styles
 ----------------------------------------------------------------------------------------*/
-#headergroup {
+
+body:not(.home) {
+	#site_title {
+
+	}
+	header.header {
+		@media (min-width: 600px) {
+			display: flex;
+			max-width: 980px;
+			margin: 0 auto;
+		}
+	}
+	#headergroup {
+		@media (min-width: 600px) {
+			flex-grow: 1;
+			height: 100%;
+			margin-top: 3.5em;
+		}
+	}
 	.menu-main_nav-container {
 		ul {
 			display: flex;
-			justify-content: space-evenly;
+			justify-content: space-between;
 			margin-bottom: 46px;
-			@media (max-width: 700px) {
+			margin: 0 1em;
+			@media (max-width: 600px) {
 				margin-bottom: 26px;
 			}
 		}
 		a {
-			font-size: 2em; /* 36px */
+			font-size: 20px;
 			color: $grey;
 			border-bottom: none;
 			text-transform: uppercase;
@@ -254,11 +273,11 @@ img.alignright, img.alignleft, img.aligncenter, img.alignnone {
 			&:hover {
 				border-bottom: 2px solid $grey;
 			}
-			@media (max-width: 700px) {
-				font-size: 1.3333em; /* 24px */
+			@media (max-width: 800px) {
+				font-size: 18px;
 			}
 			@media (max-width: 550px) {
-				font-size: 0.8888em; /* 16px */
+				font-size: 14px;
 			}
 		}
 	}
@@ -328,12 +347,12 @@ body.home .has-promos #headergroup {
 }
 
 #site_title {
-	width: 180px;
-	margin: 60px auto;
+	width: 100px;
+	margin: 30px auto;
 
-	@media (max-width: 550px) {
-		width: 100px;
-		margin: 30px auto;
+	@media (min-width: 600px) {
+		width: 150px;
+		margin: 20px 40px 20px 20px;
 	}
 
 	a {

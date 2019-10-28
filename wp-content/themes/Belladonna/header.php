@@ -107,7 +107,7 @@
 
   <?php wp_reset_postdata(); ?>
 
-    <header>
+    <header class="header">
       <h1 id="site_title">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="home_link">
           <?php if ( is_front_page() ) { ?>
