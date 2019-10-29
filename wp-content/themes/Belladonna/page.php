@@ -61,6 +61,7 @@ function format_section_title($str) {
             <?php endif; ?>
 
             <?php if (get_the_ID() === 7): ?>
+                <!-- SPA menu links -->
                 <div class="c-section-nav">
                     <?php foreach($menu_section as $section): ?>
                         <a class="c-section-nav__link" href="#<?= format_section_title($section['section_title']) ?>"><?= $section['section_title'] ?></a>
@@ -126,6 +127,71 @@ function format_section_title($str) {
 
                 <?php endforeach; ?>
             <?php endif; ?>
+
+            <?php if (get_the_ID() === 15): ?>
+                <!-- About promos -->
+                <?php
+
+                wp_enqueue_style( 'slick-style', get_template_directory_uri() . '/css/slick.css', false, '1.8.1', 'all');
+                wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/css/slick-theme.css', false, '1.8.1', 'all');
+                wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array ( 'jquery' ), '1.8.1', false);
+
+                // WP_Query arguments
+                $args = array (
+                'post_type'   => array( 'promo' ),
+                'post_status' => array( 'publish' ),
+                'meta_query'  => array(
+                    'relation'  => 'AND',
+                    // Promos end date after today's date.
+                    array(
+                    'key'     => 'end_date',
+                    'value'   => date('Ymd'), // Format is important.
+                    'compare' => '>',
+                    'type'    => 'DATE'
+                    ),
+                    // Promos start date before or equal to today's date.
+                    array(
+                    'key'     => 'start_date',
+                    'value'   => date('Ymd'), // Format is important.
+                    'compare' => '<=',
+                    'type'    => 'DATE'
+                    ),
+                ),
+                'posts_per_page'  => -1,
+                'meta_key'        => 'start_date',
+                'orderby'         => 'meta_value',
+                'order'           => 'DESC'
+                );
+
+                // The Query
+                $all_promos = new WP_Query( $args );
+                ?>
+
+                <?php if (!empty($all_promos) && $all_promos->have_posts()) : ?>
+                <!-- Promo Carousel -->
+                <div class="slider center">
+                    <?php foreach ($all_promos->posts as $promo) : ?>
+                        <div class="slide">
+                            <?php
+                            $slide_img = get_field('promo_image', $promo->ID);
+                            if (!empty($slide_img)) :
+                            ?>
+                            <div class="slide__img">
+                                <img src="<?php print $slide_img; ?>">
+                            </div>
+                            <?php endif; ?>
+                            <div class="slide__msg">
+                                <?php print $promo->post_title ?>
+                            </div>
+                            <div class="slide__cta">
+                                <?php print $promo->post_content ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <?php endif; ?>
+            <?php endif; ?>
+
         </div><!--.main_content-->
 
     </div><!--.main_section_wrapper-->

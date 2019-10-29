@@ -60,6 +60,30 @@
             "min": 1,
             "max": "",
             "return_format": "object"
+        },
+        {
+            "key": "field_5db893c3e3084",
+            "label": "Promo Image",
+            "name": "promo_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "home_slide-medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": 1,
+            "mime_types": ""
         }
     ],
     "location": [
@@ -79,5 +103,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1571359729
+    "modified": 1572377720
 }

@@ -171,7 +171,7 @@ $(document).ready(function() {
 		}
 	}
 
-	/* Promo Carousel */
+	/* Page Promo Carousel */
 	// rotation speed and timer
 	var promo_speed = 6000;
 	var run = setInterval(rotate, promo_speed);
@@ -210,5 +210,32 @@ $(document).ready(function() {
 	function rotate() {
 		$('.promo-carousel__next').click();
 	}
+
+	/* About Promo Carousel */
+	$('.slider.center').slick({
+		centerMode: true,
+		centerPadding: '60px',
+		slidesToShow: 3,
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					arrows: false,
+					centerMode: true,
+					centerPadding: '40px',
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					arrows: false,
+					centerMode: true,
+					centerPadding: '40px',
+					slidesToShow: 1
+				}
+			}
+		]
+	});
 
 });
