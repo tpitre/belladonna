@@ -922,3 +922,30 @@ input[type=text] {
 		}
 	}
 }
+
+// About promo carousel
+.slider {
+	.slide {
+		padding: 0 10px;
+		&__img {
+			padding-bottom: 60%;
+			width: 100%;
+			background-size: cover;
+			margin-bottom: 10px;
+		}
+		&__msg {
+			font-weight: bold;
+			display: inline;
+		}
+		&__cta {
+			display: inline;
+			p {
+				display: inline;
+			}
+		}
+	}
+	.slick-prev:before, .slick-next:before {
+		color: black;
+		font-family: 'Roboto Condensed', sans-serif;
+	}
+}

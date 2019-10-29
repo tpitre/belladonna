@@ -169,6 +169,7 @@ function format_section_title($str) {
 
                 <?php if (!empty($all_promos) && $all_promos->have_posts()) : ?>
                 <!-- Promo Carousel -->
+                <h2>Specials + Promos</h2>
                 <div class="slider center">
                     <?php foreach ($all_promos->posts as $promo) : ?>
                         <div class="slide">
@@ -176,9 +177,7 @@ function format_section_title($str) {
                             $slide_img = get_field('promo_image', $promo->ID);
                             if (!empty($slide_img)) :
                             ?>
-                            <div class="slide__img">
-                                <img src="<?php print $slide_img; ?>">
-                            </div>
+                            <div class="slide__img" style="background-image: url(<?php print $slide_img; ?>)"></div>
                             <?php endif; ?>
                             <div class="slide__msg">
                                 <?php print $promo->post_title ?>
