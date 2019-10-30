@@ -441,8 +441,8 @@ h1.page-title.Grey {
 		margin-bottom: 76px;
 
 		a {
-			color: $grey;
-			border-bottom: 1px solid $grey;
+			color: $red;
+			border-bottom: 1px solid $red;
 		}
 
 		a.block_btn, a.booking_btn {
@@ -626,6 +626,8 @@ body.home {
 		text-transform: uppercase;
 		font-family: bebas-neue, sans-serif;
 		margin-right: 15px;
+		color: $grey !important;
+		border-bottom: 1px solid $grey !important;
 	}
 }
 
