@@ -364,5 +364,45 @@ function post_type_promo() {
 }
 add_action('init', 'post_type_promo');
 
+/*
+| -------------------------------------------------------------------
+| Registering footer post type
+| -------------------------------------------------------------------
+|
+*/
+function post_type_footer() {
+	$supports = array(
+	'title', // post title
+	'author', // post author
+	'custom-fields', // custom fields
+	'revisions', // post revisions
+	);
+	$labels = array(
+	'name' => _x('Footer', 'plural'),
+	'singular_name' => _x('Footer', 'singular'),
+	'menu_name' => _x('Footer', 'admin menu'),
+	'name_admin_bar' => _x('Footer', 'admin bar'),
+	'add_new' => _x('Add New', 'add new'),
+	'add_new_item' => __('Add New Footer'),
+	'new_item' => __('New Footer'),
+	'edit_item' => __('Edit Footer'),
+	'view_item' => __('View Footer'),
+	'all_items' => __('All Footer'),
+	'search_items' => __('Search Footer'),
+	'not_found' => __('No Footer found.'),
+	);
+	$args = array(
+	'show_in_rest' => true,
+	'supports' => $supports,
+	'labels' => $labels,
+	'public' => true,
+	'query_var' => true,
+	'has_archive' => false,
+	'hierarchical' => false,
+	);
+	register_post_type('footer', $args);
+}
+add_action('init', 'post_type_footer');
+
 
 
