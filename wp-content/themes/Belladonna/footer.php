@@ -9,48 +9,41 @@
       <img src="<?php bloginfo('template_url'); ?>/images/belladonna-logo-white.png" alt="Belladonna" />
     </a>
 
+    <!-- Footer blocks -->
+    <?php
+
+    // WP_Query arguments
+    $args = array (
+    'post_type'       => array( 'footer' ),
+    'post_status'     => array( 'publish' ),
+    'posts_per_page'  => 1,
+    'page'            => 1,
+    'order'           => 'DESC',
+    'orderby'         => 'modified',
+    );
+
+    // The Query
+    $footer = new WP_Query( $args );
+    $hours = !empty($footer->posts) ? get_field('footer_hours', $footer->posts[0]->ID) : '';
+    $info = !empty($footer->posts) ? get_field('footer_company_info', $footer->posts[0]->ID) : '';
+    $subscribe = !empty($footer->posts) ? get_field('footer_subscribe', $footer->posts[0]->ID) : '';
+
+    ?>
+
     <div class="footer_blocks">
 
       <div class="footer_hours">
-        <h6>Hours of Operation</h6>
-        <ul class="operation-days">
-          <li class="bds-day ">
-            <span><strong>Monday</strong> - 9:00 am to 6:00 pm</span>
-          </li>
-          <li class="bds-day ">
-            <span><strong>Tuesday</strong> - 9:00 am to 6:00 pm</span>
-          </li>
-          <li class="bds-day ">
-            <span><strong>Wednesday</strong> - 9:00 am to 8:00 pm</span>
-          </li>
-          <li class="bds-day is-current">
-            <span><strong>Thursday</strong> - 9:00 am to 8:00 pm</span>
-          </li>
-          <li class="bds-day ">
-            <span><strong>Friday</strong> - 9:00 am to 6:00 pm</span>
-          </li>
-          <li class="bds-day ">
-            <span><strong>Saturday</strong> - 9:00 am to 6:00 pm</span>
-          </li>
-          <li class="bds-day ">
-            <span><strong>Sunday</strong> - 12:00 pm to 5:00 pm</span>
-          </li>
-        </ul>
+        <?php print $hours ?>
       </div>
 
       <div class="footer_contact">
-        <p>Spa + Retail Therapy + Laser<br>
-          2900 Magazine St.<br>
-          New Orleans, LA 70115<br>
-          504.891.4393</p>
-
+        <?php print $hours ?>
         <div class="copyright">Copyright &copy; <?php echo date('Y') ?> <?php bloginfo( 'name' ); ?>. <br> All Rights Reserved.
     </div>
       </div>
 
       <div class="footer_signup">
-        <h6>Sign Up for Exclusive Offers!</h6>
-        <?php echo do_shortcode('[mc4wp_form id="226"]'); ?>
+        <?php print $subscribe ?>
       </div>
 
     </div>
