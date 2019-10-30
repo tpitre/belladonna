@@ -37,7 +37,7 @@
       </div>
 
       <div class="footer_contact">
-        <?php print $hours ?>
+        <?php print $info ?>
         <div class="copyright">Copyright &copy; <?php echo date('Y') ?> <?php bloginfo( 'name' ); ?>. <br> All Rights Reserved.
     </div>
       </div>
