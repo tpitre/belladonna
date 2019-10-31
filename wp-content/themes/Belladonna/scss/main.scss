@@ -756,6 +756,10 @@ body.home #footer {
 	display: none;
 }
 
+.footer-title {
+	margin-bottom: 0.5em;
+}
+
 #footer {
 	width: 100%;
 	background-color: $light-grey;
@@ -771,6 +775,12 @@ body.home #footer {
 		margin: 0 auto 30px;
 		text-align: center;
 		display: block;
+		border: none;
+	}
+
+	a {
+		color: white;
+		border-color: white;
 	}
 
 	.copyright {
@@ -781,9 +791,9 @@ body.home #footer {
 		margin: 0 auto;
 		text-align: center;
 
-		@media (max-width: 1000px) {
-			padding-top: 24px;
-		}
+
+		padding: 24px 0;
+
 	}
 }
 
@@ -797,14 +807,20 @@ body.home #footer {
 		flex-wrap: nowrap;
 	}
 	> * {
-		max-width: 300px;
-		width: 33%;
+		width: 100%;
+		@media (min-width: 700px) {
+			max-width: 300px;
+			width: 33%;
+		}
 	}
 	.footer_contact {
 		text-align: center;
 	}
 	.footer_hours {
-
+		text-align: center;
+		@media (min-width: 700px) {
+			text-align: left;
+		}
 	}
 	.footer_signup {
 		text-align: center;
@@ -814,7 +830,62 @@ body.home #footer {
 				float: right;
 			}
 		}
+		form {
+			p {
+				@media (min-width: 700px) {
+					display: inline;
+				}
+			}
+			input[name=FNAME] {
+				@media (min-width: 700px) {
+					width: 47%;
+					display: inline-block;
+					float: left;
+				}
+			}
+			input[name=LNAME] {
+				@media (min-width: 700px) {
+					width: 47%;
+					display: inline-block;
+					float: right;
+				}
+			}
+			input {
+				@media (min-width: 700px) {
+					font-size: 90%;
+				}
+			}
+		}
 	}
+}
+
+.footer_nav {
+	.menu {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		max-width: 900px;
+		margin: 20px auto;
+
+		@media (min-width: 700px) {
+		}
+
+		&-item {
+			width: 100%;
+			text-align: center;
+			display: block;
+			padding: 5px;
+
+			@media (min-width: 700px) {
+				width: 30%;
+			}
+
+		}
+		a {
+			color: white;
+		}
+	}
+
 }
 
 

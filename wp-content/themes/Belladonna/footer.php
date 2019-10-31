@@ -38,8 +38,6 @@
 
       <div class="footer_contact">
         <?php print $info ?>
-        <div class="copyright">Copyright &copy; <?php echo date('Y') ?> <?php bloginfo( 'name' ); ?>. <br> All Rights Reserved.
-    </div>
       </div>
 
       <div class="footer_signup">
@@ -47,6 +45,12 @@
       </div>
 
     </div>
+
+    <div class="footer_nav">
+      <?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
+    </div>
+
+    <div class="copyright">Copyright &copy; <?php echo date('Y') ?> <?php bloginfo( 'name' ); ?>. All Rights Reserved.</div>
 
   </div><!-- .footer_wrapper -->
 

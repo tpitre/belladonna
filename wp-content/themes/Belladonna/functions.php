@@ -64,15 +64,15 @@ add_action('wp_enqueue_scripts', 'bootstrapwp_css_loader');
 
 /*
 | -------------------------------------------------------------------
-| Registering Top Navigation Bar
+| Registering Navigation
 | -------------------------------------------------------------------
 | Adds custom menu with wp_page_menu fallback
 | */
 
 if ( function_exists( 'register_nav_menu' ) ) {
 	register_nav_menu( 'primary-menu', 'Primary Navigation' );
+	register_nav_menu( 'footer-menu', 'Footer Navigation' );
 }
-
 
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
