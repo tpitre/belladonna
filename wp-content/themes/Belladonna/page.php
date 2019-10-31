@@ -14,7 +14,7 @@ function format_section_title($str) {
 
     <?php if($page_header_image): ?>
         <?php $header_image = wp_get_attachment_image_src($page_header_image, 'header-large' ); ?>
-        <img src="<?php echo $header_image[0]; ?>" class="header_image" />
+        <div class="header_container"><img src="<?php echo $header_image[0]; ?>" class="header_image" /></div>
     <?php endif; ?>
 
     <div class="main_section_wrapper section_<?php the_ID(); ?>">
