@@ -355,6 +355,7 @@ function post_type_promo() {
 	'supports' => $supports,
 	'labels' => $labels,
 	'public' => true,
+	'publicly_queryable' => true,
 	'query_var' => true,
 	'rewrite' => array('slug' => 'promo'),
 	'has_archive' => true,
