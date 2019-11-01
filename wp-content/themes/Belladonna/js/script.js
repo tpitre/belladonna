@@ -36,11 +36,11 @@ $(document).ready(function() {
 		var slideTitleElement = document.querySelector('.home_gallery_title');
 		var ctx = canvas.getContext('2d');
 		var width = canvas.width = window.innerWidth;
-		var height = canvas.height = window.innerHeight;
+		var height = canvas.height = document.querySelector('.hero_image_slider').offsetHeight;
 
 		window.addEventListener('resize', function() {
 			width = canvas.width = window.innerWidth;
-			height = canvas.height = window.innerHeight;
+			height = canvas.height = document.querySelector('.hero_image_slider').offsetHeight;
 		}, false);
 
 		//
