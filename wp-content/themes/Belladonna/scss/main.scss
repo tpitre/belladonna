@@ -517,12 +517,13 @@ body.home {
 .home_slide {
 	position: absolute;
 	top: 100vh;
+	height: 100%;
 
 	img {
 		object-fit: cover;
 		object-position: 50% 50%;
 		width: 100vw;
-		height: 100vh;
+		height: 100%;
 	}
 
 	.home_gallery_title {
