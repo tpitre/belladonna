@@ -12,13 +12,13 @@ $(document).ready(function() {
 				width: 1920,
 				height: 1680
 			},
-			// m2: {
-			// 	img: loadImg('/wp-content/themes/Belladonna/images/transition-imgs/trans2-min.png'),
-			// 	cols: 5,
-			// 	rows: 6,
-			// 	width: 1845,
-			// 	height: 1620
-			// }
+			m2: {
+				img: loadImg('/wp-content/themes/Belladonna/images/transition-imgs/belladonna-ripple-trans-min.png', setInterval(slideTransition, timer)),
+				cols: 6,
+				rows: 9,
+				width: 1920,
+				height: 2160
+			}
 		};
 
 		var slides = home_slides.map(function(slide){
@@ -54,7 +54,7 @@ $(document).ready(function() {
 			var next_slide_index = slides.indexOf(cur_slide) + 1 === slides.length ? 0 : slides.indexOf(cur_slide) + 1;
 			// If the image is loaded lets transition.
 			if (slides[next_slide_index].img.loaded) {
-				animate(slides[next_slide_index].img, masks.m1, function() {
+				animate(slides[next_slide_index].img, masks.m2, function() {
 					slideImageElement.setAttribute('src', slides[next_slide_index].src);
 					slideTitleElement.classList.remove('fade-in');
 					slideTitleElement.innerHTML = slides[next_slide_index].title.replace(/(^|<\/?[^>]+>|\s+)([^\s<]+)/g, '$1<span>$2</span>');
