@@ -855,25 +855,28 @@ body.home #footer {
 					display: inline;
 				}
 			}
-			input[name=FNAME] {
-				@media (min-width: 700px) {
-					width: 47%;
-					display: inline-block;
-					float: left;
-				}
+			input[type=submit] {
+				width: 100%;
 			}
-			input[name=LNAME] {
-				@media (min-width: 700px) {
-					width: 47%;
-					display: inline-block;
-					float: right;
-				}
-			}
-			input {
-				@media (min-width: 700px) {
-					font-size: 90%;
-				}
-			}
+			// input[name=FNAME] {
+			// 	@media (min-width: 700px) {
+			// 		width: 47%;
+			// 		display: inline-block;
+			// 		float: left;
+			// 	}
+			// }
+			// input[name=LNAME] {
+			// 	@media (min-width: 700px) {
+			// 		width: 47%;
+			// 		display: inline-block;
+			// 		float: right;
+			// 	}
+			// }
+			// input {
+			// 	@media (min-width: 700px) {
+			// 		font-size: 90%;
+			// 	}
+			// }
 		}
 	}
 }
@@ -949,8 +952,19 @@ select {
 }
 input[type=submit] {
 	background-color: $red;
-	border: 1px solid $red;
 	color: white;
+	border: none;
+	font-family: bebas-neue, sans-serif;
+	text-transform: uppercase;
+	// font-size: 1.33333em; /* 24px */
+	letter-spacing: 0.15em;
+	padding: 10px 18px;
+	border-radius: 10px;
+	width: inherit;
+
+	&:hover {
+		background-color: black;
+	}
 }
 label {
 	font-size: .875rem;
