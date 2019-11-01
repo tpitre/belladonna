@@ -23,7 +23,7 @@
   <div class="js-promo-carousel-slides promo-carousel__slides">
     <ul>
     <?php foreach ($promos->posts as $key => $promo) : ?>
-      <li class="js-promo-carousel-slide promo-carousel__slide <?php if ($key == 0): print 'active'; endif; ?>">
+      <li class="js-promo-carousel-slide promo-carousel__slide <?php if ($key == 0): print 'active'; endif; ?>" data-href="<?php print get_permalink($promo->ID); ?>">
         <div class="promo-carousel__slide__msg">
           <?php print $promo->post_title ?>
         </div>

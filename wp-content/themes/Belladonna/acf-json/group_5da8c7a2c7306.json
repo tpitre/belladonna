@@ -84,6 +84,25 @@
             "max_height": "",
             "max_size": 1,
             "mime_types": ""
+        },
+        {
+            "key": "field_5dbc797fe601a",
+            "label": "Promo Additional Details",
+            "name": "promo_details",
+            "type": "wysiwyg",
+            "instructions": "use this field for a longer description of the promo\/event",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -103,5 +122,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1572377720
+    "modified": 1572633052
 }

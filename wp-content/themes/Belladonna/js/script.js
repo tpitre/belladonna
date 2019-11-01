@@ -197,6 +197,16 @@ $(document).ready(function() {
 			});
 	});
 
+	// User clicks promo.
+	$container.find('.js-promo-carousel-slide').each(function() {
+		var $t = $(this);
+		$t.on('click', function(e) {
+			if (!$(e.target).is('a')) {
+				window.location.href = $t.attr('data-href');
+			}
+		})
+	})
+
 	// if mouse hover, pause the auto rotation, otherwise rotate it
 	$container.parent().mouseenter(function () {
 			clearInterval(run);

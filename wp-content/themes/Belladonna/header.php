@@ -103,7 +103,7 @@
   ?>
 
   <div id="wrapper_all">
-  <div id="wrapper" class="<?php if ($promos->have_posts()): print 'has-promos'; endif; ?>">
+  <div id="wrapper" class="<?php if (!empty($promos) && $promos->have_posts()): print 'has-promos'; endif; ?>">
 
   <?php wp_reset_postdata(); ?>
 
