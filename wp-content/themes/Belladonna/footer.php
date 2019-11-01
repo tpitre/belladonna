@@ -66,7 +66,7 @@
 <script src="<?php bloginfo('template_url'); ?>/js/jquery-ui-1.10.3.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/jquery.scrollTo.min.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/js/responsive-img.min.js"></script>
-<script src="<?php bloginfo('template_url'); ?>/js/script.js?v=0.1"></script>
+<script src="<?php bloginfo('template_url'); ?>/js/script.js?v=0.2"></script>
 
 </body>
 
