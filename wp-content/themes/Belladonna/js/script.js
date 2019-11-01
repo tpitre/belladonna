@@ -54,7 +54,7 @@ $(document).ready(function() {
 			var next_slide_index = slides.indexOf(cur_slide) + 1 === slides.length ? 0 : slides.indexOf(cur_slide) + 1;
 			// If the image is loaded lets transition.
 			if (slides[next_slide_index].img.loaded) {
-				animate(slides[next_slide_index].img, masks.m2, function() {
+				animate(slides[next_slide_index].img, masks.m1, function() {
 					slideImageElement.setAttribute('src', slides[next_slide_index].src);
 					slideTitleElement.classList.remove('fade-in');
 					slideTitleElement.innerHTML = slides[next_slide_index].title.replace(/(^|<\/?[^>]+>|\s+)([^\s<]+)/g, '$1<span>$2</span>');
