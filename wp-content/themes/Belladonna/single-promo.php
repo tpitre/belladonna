@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+
 
 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -6,10 +6,6 @@
 $page_header_image = get_field('promo_image');
 $page_color = get_field('page_color', 201);
 $details = get_field('promo_details');
-// $page_blocks = get_field('page_blocks');
-function format_section_title($str) {
-    return str_replace(array(' '), '-', strtolower(trim($str)));
-}
 ?>
 
 <div id="main">
