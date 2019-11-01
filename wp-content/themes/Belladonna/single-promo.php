@@ -1,5 +1,8 @@
+<?php get_header(); ?>
+
+<?php while ( have_posts() ) : the_post(); ?>
+
 <?php
-get_header();
 $page_header_image = get_field('promo_image');
 $page_color = get_field('page_color', 201);
 $details = get_field('promo_details');
@@ -7,7 +10,6 @@ $details = get_field('promo_details');
 function format_section_title($str) {
     return str_replace(array(' '), '-', strtolower(trim($str)));
 }
-
 ?>
 
 <div id="main">
@@ -33,6 +35,8 @@ function format_section_title($str) {
     </div><!--.main_section_wrapper-->
 
 </div><!-- #main -->
+
+<?php endwhile; // End the loop ?>
 
 
 <?php get_footer(); ?>
