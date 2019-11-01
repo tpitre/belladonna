@@ -657,6 +657,19 @@ body.home {
 	h2 {
 		text-transform: uppercase;
 	}
+	.menu_item:not(.wide_row) {
+		@media (min-width: 551px) {
+			position: relative;
+			padding-bottom: 30px;
+		}
+		.booking_btn {
+			@media (min-width: 551px) {
+				position: absolute;
+				bottom: -30px;
+				left: 0;
+			}
+		}
+	}
 }
 
 .menu_items {
