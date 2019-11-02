@@ -11,7 +11,7 @@ add_filter( 'show_admin_bar', '__return_false' );
 if (!is_admin()) {
 	function mytheme_enqueue_scripts() {
 	       wp_deregister_script('jquery');
-	       wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false, '1.9.1');
+	       wp_register_script('jquery', ("https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"), false, '1.9.1');
 	       wp_enqueue_script('jquery');
 	}
 }
