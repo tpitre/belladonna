@@ -13,26 +13,24 @@
 <html <?php language_attributes(); ?>>
   <head>
 
-   <title><?php
-  /*
-   * Print the <title> tag based on what is being viewed.
-   */
-  global $page, $paged;
+    <title>
+      <?php
+        /*
+         * Print the <title> tag based on what is being viewed.
+         */
+        global $page, $paged;
 
-  wp_title( '|', true, 'right' );
+        wp_title( '|', true, 'right' );
 
-  // Add a page number if necessary:
-  if ( $paged >= 2 || $page >= 2 )
-    echo ' | ' . sprintf( __( 'Page %s', 'bootstrapwp' ), max( $paged, $page ) );
-
-  ?></title>
+        // Add a page number if necessary:
+        if ( $paged >= 2 || $page >= 2 )
+          echo ' | ' . sprintf( __( 'Page %s', 'bootstrapwp' ), max( $paged, $page ) );
+      ?>
+    </title>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, target-densitydpi=medium-dpi" />-->
-
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
     <link href="<?php bloginfo('template_url'); ?>/css/main.css?v=0.3" rel="stylesheet" type="text/css" />
-
 
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i&display=swap" rel="stylesheet">
@@ -40,35 +38,26 @@
     <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-  <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="<?php bloginfo( 'template_url' );?>/images/favicon.ico?v=2" />
-    <!--<link rel="apple-touch-icon" href="<?php bloginfo( 'template_url' );?>/images/paradox_icon_57x57.png" />-->
-
+    <link rel="apple-touch-icon" href="<?php bloginfo( 'template_url' );?>/images/paradox_icon_57x57.png" />
 
     <meta name="p:domain_verify" content="59c1b9f9b1739a7e5142127e0118c65b"/>
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MM3G6VQ');</script>
-    <!-- End Google Tag Manager -->
+    <?php wp_head(); ?>
 
-  <!--[if lt IE 9]>
-<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91493314-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  <?php wp_head(); ?>
+      gtag('config', 'UA-91493314-1');
+    </script>
 
   </head>
 
   <body <?php body_class(); ?>>
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MM3G6VQ"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <?php
   if (is_page()):
