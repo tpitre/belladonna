@@ -11,7 +11,7 @@ get_header(); ?>
 
 <div id="main" class="clearfix">
   <div class="main_section_wrapper">
-    <h1 class="page-title Red">This page is missing</h1>
+    <h1 class="page-title Red" style="margin-top: 20px;">Missing Page 😦</h1>
 
     <div class="main_content">
 
