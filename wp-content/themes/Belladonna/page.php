@@ -173,18 +173,20 @@ function format_section_title($str) {
                 <div class="slider center">
                     <?php foreach ($all_promos->posts as $promo) : ?>
                         <div class="slide">
-                            <?php
-                            $slide_img = get_field('promo_image', $promo->ID);
-                            if (!empty($slide_img)) :
-                            ?>
-                            <div class="slide__img" style="background-image: url(<?php print $slide_img; ?>)"></div>
-                            <?php endif; ?>
-                            <div class="slide__msg">
-                                <?php print $promo->post_title ?>
-                            </div>
-                            <div class="slide__cta">
-                                <?php print $promo->post_content ?>
-                            </div>
+                            <a href="<?php print get_permalink($promo->ID); ?>">
+                                <?php
+                                $slide_img = get_field('promo_image', $promo->ID);
+                                if (!empty($slide_img)) :
+                                ?>
+                                <div class="slide__img" style="background-image: url(<?php print $slide_img; ?>)"></div>
+                                <?php endif; ?>
+                                <div class="slide__msg">
+                                    <?php print $promo->post_title ?>
+                                </div>
+                                <div class="slide__cta">
+                                    <?php print $promo->post_content ?>
+                                </div>
+                            </a>
                         </div>
                     <?php endforeach; ?>
                 </div>
