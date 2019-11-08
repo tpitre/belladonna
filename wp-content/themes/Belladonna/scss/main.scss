@@ -240,6 +240,12 @@ body:not(.home) {
 	#site_title {
 
 	}
+	#wrapper.has-promos {
+		margin-top: 40px;
+		@media (min-width: 600px) {
+			margin-top: 20px;
+		}
+	}
 	header.header {
 		@media (min-width: 600px) {
 			display: flex;
