@@ -3,6 +3,25 @@
     "title": "Menu Items",
     "fields": [
         {
+            "key": "field_5dd2a8e7a692a",
+            "label": "Show Anchor Menu",
+            "name": "show_anchor_menu",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5d5ab6ecf7139",
             "label": "Menu Section",
             "name": "menu_section",
@@ -238,5 +257,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1572455442
+    "modified": 1574086936
 }
