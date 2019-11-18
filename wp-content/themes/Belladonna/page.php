@@ -74,7 +74,7 @@ function format_section_title($str) {
             <?php if ($menu_section): ?>
                 <?php foreach($menu_section as $section): ?>
 
-                    <div class="menu_section" <?php print get_the_ID() === 7 ? 'id="' . format_section_title($section['section_title']) . '"' : ''; ?>>
+                    <div class="menu_section" <?php print !empty($show_anchor_menu) ? 'id="' . format_section_title($section['section_title']) . '"' : ''; ?>>
                         <?php if($section['section_title']): ?>
                             <h2><?= $section['section_title'] ?></h2>
                         <?php endif; ?>
