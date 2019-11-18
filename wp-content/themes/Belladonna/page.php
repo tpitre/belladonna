@@ -3,6 +3,7 @@ get_header(); the_post();
 $page_header_image = get_field('page_header_image');
 $page_color = get_field('page_color');
 $menu_section = get_field('menu_section');
+$show_anchor_menu = get_field('show_anchor_menu');
 $page_blocks = get_field('page_blocks');
 function format_section_title($str) {
     return str_replace(array(' '), '-', strtolower(trim($str)));
@@ -20,6 +21,16 @@ function format_section_title($str) {
     <div class="main_section_wrapper section_<?php the_ID(); ?>">
         <h1 class="page-title <?= $page_color ?>"><?php the_title(); ?></h1>
         <div class="main_content">
+
+            <?php if (!empty($show_anchor_menu)): ?>
+                <!-- SPA menu links -->
+                <div class="c-section-nav">
+                    <?php foreach($menu_section as $section): ?>
+                        <a class="c-section-nav__link" href="#<?= format_section_title($section['section_title']) ?>"><?= $section['section_title'] ?></a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
             <?php if (get_the_content()): ?>
                 <?php the_content();?>
             <?php endif; ?>
@@ -58,15 +69,6 @@ function format_section_title($str) {
                         <?php endif; ?>
                     </div><!--.section_blocks-->
                 <?php endwhile; ?>
-            <?php endif; ?>
-
-            <?php if (get_the_ID() === 7): ?>
-                <!-- SPA menu links -->
-                <div class="c-section-nav">
-                    <?php foreach($menu_section as $section): ?>
-                        <a class="c-section-nav__link" href="#<?= format_section_title($section['section_title']) ?>"><?= $section['section_title'] ?></a>
-                    <?php endforeach; ?>
-                </div>
             <?php endif; ?>
 
             <?php if ($menu_section): ?>
