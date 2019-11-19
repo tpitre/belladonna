@@ -319,6 +319,9 @@ function bootstrapwp_enhanced_image_navigation( $url ) {
 }
 add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 
+// Fix for safari date field.
+add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
+
 
 /*
 | -------------------------------------------------------------------
