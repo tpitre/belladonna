@@ -900,6 +900,29 @@ body.home #footer {
 	}
 }
 
+.social-links {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+.ico-bg {
+	width: 30px;
+	height: 30px;
+	margin: 0 10px;
+	background-size: contain;
+	text-indent: -99em;
+	overflow: hidden;
+	&--facebook {
+		background-image: url('/wp-content/themes/Belladonna/images/facebook.svg');
+	}
+	&--instagram {
+		background-image: url('/wp-content/themes/Belladonna/images/instagram.svg');
+	}
+	&:hover {
+		border-bottom: none;
+	}
+}
+
 .footer_nav {
 	.menu {
 		display: flex;
