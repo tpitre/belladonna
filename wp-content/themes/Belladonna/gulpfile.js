@@ -1,13 +1,13 @@
-let gulp = require('gulp');
+let gulp         = require('gulp');
 let autoprefixer = require('gulp-autoprefixer');
-let concat = require('gulp-concat');
-let plumber = require('gulp-plumber');
-let sass = require('gulp-sass');
-let sourcemaps = require('gulp-sourcemaps');
-let rename = require('gulp-rename');
-let cleanCSS = require('gulp-clean-css');
-let watch = require('gulp-watch');
-var browserSync = require('browser-sync');
+let concat       = require('gulp-concat');
+let plumber      = require('gulp-plumber');
+let sass         = require('gulp-sass');
+let sourcemaps   = require('gulp-sourcemaps');
+let rename       = require('gulp-rename');
+let cleanCSS     = require('gulp-clean-css');
+let watch        = require('gulp-watch');
+var browserSync  = require('browser-sync');
 
 let config = {};
 config.sass = {
@@ -36,7 +36,7 @@ gulp.task('sass', function () {
 
 gulp.task('browser-sync', function() {
   browserSync.init(["css/*.css", "js/*.js"], {
-    proxy: "http://belladonna.lndo.site"
+    proxy: "http://belladonna.test"
   });
 });
 

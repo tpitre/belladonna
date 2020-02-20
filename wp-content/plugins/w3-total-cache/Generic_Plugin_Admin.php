@@ -41,6 +41,9 @@ class Generic_Plugin_Admin {
 		add_action( 'admin_init_w3tc_dashboard', array(
 				'\W3TC\Generic_WidgetServices',
 				'admin_init_w3tc_dashboard' ) );
+		add_action( 'admin_init_w3tc_dashboard', array(
+				'\W3TC\Generic_WidgetBoldGrid',
+				'admin_init_w3tc_dashboard' ) );
 
 		add_action( 'admin_enqueue_scripts', array(
 				$this,
@@ -296,12 +299,19 @@ class Generic_Plugin_Admin {
 
 ?>
 		<style type="text/css" media="screen">
-		.toplevel_page_w3tc_dashboard .wp-menu-image:before{
+		li.toplevel_page_w3tc_dashboard .wp-menu-image:before{
 			content:'\0041';
 			top: 2px;
 			font-family: 'w3tc';
 		}
 		</style>
+		<script>
+		jQuery(document).ready( function($) {
+			$('#toplevel_page_w3tc_dashboard ul li').find('a[href*="w3tc_faq"]')
+				.prop('target','_blank')
+				.prop('href', <?php echo json_encode(W3TC_FAQ_URL) ?>);
+		});
+		</script>
 		<?php
 	}
 

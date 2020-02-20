@@ -5,11 +5,8 @@ namespace W3TC;
  * W3 Total Cache plugin
  */
 class Generic_Plugin {
-
+	private $is_wp_die = false;
 	private $_translations = array();
-	/**
-	 * Config
-	 */
 	private $_config = null;
 
 	function __construct() {
@@ -78,19 +75,23 @@ class Generic_Plugin {
 				), 0, 5 );
 		}
 
-		if ( $this->_config->get_string( 'common.support' ) == 'footer' ) {
-			add_action( 'wp_footer', array(
-					$this,
-					'footer'
-				) );
-		}
-
 		if ( $this->can_ob() ) {
+			add_filter( 'wp_die_xml_handler', array( $this, 'wp_die_handler' ) );
+			add_filter( 'wp_die_handler', array( $this, 'wp_die_handler' ) );
+
 			ob_start( array(
 					$this,
 					'ob_callback'
 				) );
 		}
+	}
+
+	/**
+	 * Marks wp_die was called so response is system message
+	 **/
+	public function wp_die_handler( $v ) {
+		$this->is_wp_die = true;
+		return $v;
 	}
 
 	/**
@@ -204,10 +205,10 @@ class Generic_Plugin {
 			// so need to redirect to something a bit different
 			if ( $do_redirect ) {
 				if ( strpos( $_SERVER['REQUEST_URI'], '?' ) === false )
-					Util_Environment::redirect_temp( $_SERVER['REQUEST_URI'] . '?repeat=w3tc' );
+					Util_Environment::safe_redirect_temp( $_SERVER['REQUEST_URI'] . '?repeat=w3tc' );
 				else {
 					if ( strpos( $_SERVER['REQUEST_URI'], 'repeat=w3tc' ) === false )
-						Util_Environment::redirect_temp( $_SERVER['REQUEST_URI'] . '&repeat=w3tc' );
+						Util_Environment::safe_redirect_temp( $_SERVER['REQUEST_URI'] . '&repeat=w3tc' );
 				}
 			}
 		}
@@ -487,15 +488,6 @@ class Generic_Plugin {
 	}
 
 	/**
-	 * Footer plugin action
-	 *
-	 * @return void
-	 */
-	function footer() {
-		echo '<div style="text-align: center;"><a href="https://www.w3-edge.com/products/" rel="external">Optimization WordPress Plugins &amp; Solutions by W3 EDGE</a></div>';
-	}
-
-	/**
 	 * Output buffering callback
 	 *
 	 * @param string  $buffer
@@ -509,8 +501,9 @@ class Generic_Plugin {
 			return $buffer;
 		}
 
-		if ( Util_Content::is_database_error( $buffer ) ) {
-			status_header( 503 );
+		if ( $this->is_wp_die &&
+				!apply_filters( 'w3tc_process_wp_die', false, $buffer ) ) {
+			// wp_die is dynamic output (usually fatal errors), dont process it
 		} else {
 			$buffer = apply_filters( 'w3tc_process_content', $buffer );
 
@@ -526,8 +519,7 @@ class Generic_Plugin {
 
 				$strings = array();
 
-				if ( $this->_config->get_string( 'common.support' ) == '' &&
-					!$this->_config->get_boolean( 'common.tweeted' ) ) {
+				if ( !$this->_config->get_boolean( 'common.tweeted' ) ) {
 					$strings[] = 'Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/';
 					$strings[] = '';
 				}
@@ -546,8 +538,15 @@ class Generic_Plugin {
 			}
 
 			$buffer = Util_Bus::do_ob_callbacks(
-				array( 'swarmify', 'minify', 'newrelic', 'cdn', 'browsercache', 'pagecache' ),
-				$buffer );
+				array(
+					'swarmify',
+					'lazyload',
+					'minify',
+					'newrelic',
+					'cdn',
+					'browsercache',
+					'pagecache'
+				), $buffer );
 
 			$buffer = apply_filters( 'w3tc_processed_content', $buffer );
 		}
