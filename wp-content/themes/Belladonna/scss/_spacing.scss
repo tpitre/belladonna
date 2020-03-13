@@ -1,0 +1,41 @@
+$sizes: ('': $space, --qtr: $space / 4, --half: $space / 2, --and-half: $space * 1.5, --double: $space * 2, --triple: $space * 3, --quad: $space * 4, --zero: 0);
+
+$sides: ('': '', --top: "-top", --bottom: "-bottom", --left: "-left", --right: "-right");
+
+@each $size_key, $size_value in $sizes {
+
+  .u-pad#{$size_key}--x {
+    padding-left: #{$size_value};
+    padding-right: #{$size_value};
+  }
+  
+  .u-pad#{$size_key}--y {
+    padding-top: #{$size_value};
+    padding-bottom: #{$size_value};
+  }
+
+  @each $side_key, $side_value in $sides {
+    .u-pad#{$size_key}#{$side_key} {
+      padding#{$side_value}: #{$size_value};
+    }
+  }
+}
+
+@include screen-md-up {
+  @each $size_key, $size_value in $sizes {
+    .u-pad-at-md#{$size_key}--x {
+      padding-left: #{$size_value};
+      padding-right: #{$size_value};
+    }
+    
+    .u-pad-at-md#{$size_key}--y {
+      padding-top: #{$size_value};
+      padding-bottom: #{$size_value};
+    }
+    @each $side_key, $side_value in $sides {
+      .u-pad-at-md#{$size_key}#{$side_key} {
+        padding#{$side_value}: #{$size_value};
+      }
+    }
+  }
+}

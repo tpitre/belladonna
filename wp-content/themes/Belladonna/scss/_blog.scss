@@ -1,0 +1,44 @@
+.c-archive-post {
+  margin-bottom: $space + 10;
+
+  h2 {
+    margin-top: 0;
+    
+    & a {
+      color: $red;
+      
+      &:hover {
+        border-bottom: 1px solid $red;
+      }
+    }
+  } 
+
+  &__summary {
+    color: $grey;
+    line-height: 1.4
+  }
+}
+
+.c-blog-sidebar {
+  padding-top: $space;
+
+  &__signup {
+    margin-bottom: $space;
+
+    p { 
+      margin-top: 0;
+    }
+  }
+
+  &__title {
+    margin-top: $space-double;
+  }
+  &__title:first-of-type {
+    margin-top: 80px;
+  }
+
+  &__links li {
+    margin-bottom: $space-half;
+  }
+}
+

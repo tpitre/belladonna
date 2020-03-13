@@ -1,0 +1,64 @@
+.main_content {
+  .c-team-item > a {
+    border-bottom: 0;
+  }
+}
+
+.c-profile {
+  & h2 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a.button {
+    background-color: #F0554E;
+    color: white;
+    border: none;
+    font-family: bebas-neue, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 10px 18px;
+    border-radius: 10px;
+    width: inherit;
+  }
+
+  &__quote {
+    quotes: "“" "”" "‘" "’";
+    margin-left: $space - 15;
+    margin-right: $space - 15;
+  }
+
+  &__quote::before {
+    display: block;
+    margin-left: -$space-half;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    line-height: 0.25;
+    font-family: serif;
+    font-size: 48px;
+    color: #DE6055;
+    content: open-quote;
+
+    @include screen-md-up {
+      margin-left: -$space - 15;
+      line-height: 0.15;
+    }
+  }
+
+  &__quote::after {
+    display: block;
+    text-align: right;
+    margin-top: 0;
+    margin-right: -$space-half;
+    padding-top: 0;
+    line-height: 0.5;
+    font-family: serif;
+    font-size: 48px;
+    color: #DE6055;
+    content: close-quote;
+
+    @include screen-md-up {
+      margin-right: -$space - 15;
+    }
+  }
+}

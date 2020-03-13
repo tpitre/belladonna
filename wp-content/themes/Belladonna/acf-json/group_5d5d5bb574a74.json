@@ -1,0 +1,111 @@
+{
+    "key": "group_5d5d5bb574a74",
+    "title": "Page Header",
+    "fields": [
+        {
+            "key": "field_5d5d5bdcee099",
+            "label": "Page Header Image",
+            "name": "page_header_image",
+            "type": "image",
+            "instructions": "Upload large image at 1440px (w) x 730px (h) or higher",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 1440,
+            "min_height": 730,
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5d5eb9bbdc07c",
+            "label": "Page Color",
+            "name": "page_color",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Green": "Green",
+                "Blue": "Blue",
+                "Pink": "Pink",
+                "Lavender": "Lavender",
+                "Orange": "Orange",
+                "Red": "Red",
+                "Grey": "Grey"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "promo"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "bd_team"
+            }
+        ],
+        [
+            {
+                "param": "page",
+                "operator": "!=",
+                "value": "5"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "promo"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "bd_team"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1583513957
+}
