@@ -42,3 +42,52 @@
   }
 }
 
+.c-blog {
+  & figure {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    & img {
+      width: 100%;
+    }
+  }
+
+  blockquote.wp-block-quote {
+    quotes: "“" "”" "‘" "’";
+    padding-left: $space-triple;
+    padding-right: $space;
+    font-size: 1.75rem;
+    color: #1D1A20;
+
+    &::before {
+      display: block;
+      margin-left: -$space - 10;
+      margin-bottom: -$space-triple - 10;
+      padding-bottom: 0;
+      font-family: serif;
+      font-size: 48px;
+      color: #57BF9C;
+      content: open-quote;
+    }
+
+    p {
+      display: inline-block;
+    }
+
+    p::after {
+      display: inline-block;
+      padding-top: 0;
+      line-height: 0.2;
+      transform: translateY(12px);
+      font-family: serif;
+      font-size: 48px;
+      color: #57BF9C;
+      content: close-quote;  
+    }
+  }
+
+  ul.pager {
+    padding-left: 0;
+    list-style: none;
+  }
+}

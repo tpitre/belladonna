@@ -38,14 +38,14 @@ get_header(); ?>
               </ul>
             
               <p class="u-pad--top">
-                <a class="button" href="#">BOOK SESSION</a>
+                <a class="button btn-book-session" href="#">BOOK SESSION</a>
               </p>              
             </div>
             <div class="l-grid-item">
               <h3>About</h3>
               <?php the_field( 'bio' ) ?>
 
-              <div class="u-pad--top">
+              <div class="u-pad--top c-social-links">
               <?php 
               if( have_rows('social_media') ) :
                 $max =  count( get_field('social_media') );
@@ -63,7 +63,11 @@ get_header(); ?>
             </div>
             <div class="l-grid-item">
               <blockquote class="u-pad--double--top u-pad-at-md--zero--top u-pad--zero--bottom  u-pad-at-md--double--bottom c-profile__quote">
-                <?php the_field('quote'); ?>
+                <p>
+                  <span class="o-bg-text-accent">
+                  <?php the_field('quote'); ?>
+                  </span>
+                </p>
               </blockquote>
             </div>
           </div>

@@ -164,17 +164,17 @@ function bootstrapwp_content_nav( $nav_id ) {
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 <ul class="pager">
-		<?php previous_post_link( '<li class="previous">%link</li>',  _x( '', 'Previous post link', 'bootstrapwp' ) . '</span> Previous Project' ); ?>
-		<?php next_post_link( '<li class="next">%link</li>', 'Next Project ' . _x( '', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
+		<?php previous_post_link( '<li class="previous">%link</li>',  _x( '', 'Previous post link', 'bootstrapwp' ) . '</span> Previous' ); ?>
+		<?php next_post_link( '<li class="next">%link</li>', 'Next ' . _x( '', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
 </ul>
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 <ul class="pager">
 		<?php if ( get_next_posts_link() ) : ?>
-		<li class="next"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp' ) ); ?></li>
+		<li class="next"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older', 'bootstrapwp' ) ); ?></li>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<li class="previous"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></li>
+		<li class="previous"><?php previous_posts_link( __( 'Newer <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></li>
 		<?php endif; ?>
 </ul>
 	<?php endif; ?>

@@ -15,7 +15,7 @@ if ( $q->have_posts() ) :
 <li class="l-grid-item c-team-item">
   <a href="<?php the_permalink() ?>">
     <img class="u-full-width" src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'team-grid') ?>" alt="">
-    <?php echo get_the_title() ?>
+    <span><?php echo get_the_title() ?></span>
   </a>
 </li>
 
