@@ -26,9 +26,10 @@ get_header(); ?>
         <div class="u-flex u-items-center u-space--y c-blog-nav">
           <div class="u-pad-at-md--half--right">
             <?php
+            $has_prev_post = get_previous_post_link();
             $prevID = get_previous_post()->ID; 
             $page_header_image = get_field( 'page_header_image', $prevID );
-            if ($page_header_image):  
+            if ($page_header_image && $has_prev_post):  
               $img = wp_get_attachment_image_src($page_header_image, 'blog-nav' ); ?>
               <img src="<?php echo $img[0]; ?>" class="u-full-width" alt="previous entry" />
             <?php 
