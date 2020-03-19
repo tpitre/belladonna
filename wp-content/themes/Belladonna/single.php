@@ -27,11 +27,14 @@ get_header(); ?>
           <div class="u-pad-at-md--half--right">
             <?php
             $has_prev_post = get_previous_post_link();
+            $previous_post_url = get_permalink( get_adjacent_post(false,'',true)->ID );
             $prevID = get_previous_post()->ID; 
             $page_header_image = get_field( 'page_header_image', $prevID );
             if ($page_header_image && $has_prev_post):  
               $img = wp_get_attachment_image_src($page_header_image, 'blog-nav' ); ?>
-              <img src="<?php echo $img[0]; ?>" class="u-full-width" alt="previous entry" />
+              <a class="u-border--none" href="<?php echo $previous_post_url ?>">
+                <img src="<?php echo $img[0]; ?>" class="u-full-width o-post-nav-img" alt="previous entry" />
+              </a>
             <?php 
             endif;
             if ( $prevID ) : ?>
@@ -44,11 +47,14 @@ get_header(); ?>
           <div class="u-width-at-md--half u-align-at-md--right u-pad-at-md--half--left">
             <?php
               $has_next_post = get_next_post_link();
+              $next_post_url = get_permalink( get_adjacent_post(false,'',false)->ID );
               $nextID = get_next_post()->ID;
               $page_header_image = get_field( 'page_header_image', $nextID );
               if ($page_header_image && $has_next_post ):  
                 $img = wp_get_attachment_image_src($page_header_image, 'blog-nav' ); ?>
-                <img src="<?php echo $img[0]; ?>" class="u-full-width" alt="next entry" />
+                <a class="u-border--none" href="<?php echo $next_post_url ?>">
+                  <img src="<?php echo $img[0]; ?>" class="u-full-width o-post-nav-img" alt="next entry" />
+                </a>
               <?php 
               endif;
               next_post_link( '<strong class="o-post-nav-link">%link</strong>' ); ?>

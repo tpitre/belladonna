@@ -99,6 +99,15 @@
     & > div {
       width: 50%;
       min-width: 50%; 
+
+      &:hover {
+        img {
+          filter: brightness(110%) saturate(1.15);
+        }
+        a {
+          border-bottom-color: #DE6055;
+        }
+      }
     }
     @include screen-sm-down {
       flex-wrap: wrap;
@@ -113,4 +122,16 @@
       }
     }
   }
+
+  .o-post-nav-img {
+    border: 0;
+    transition: all .35s ease;
+    filter: brightness(100%);
+    transform: translateZ(0);
+
+  }
+
+  .o-post-nav-link a {
+    border-bottom: 1px solid transparent;
+  } 
 }
