@@ -42,3 +42,36 @@
 .u-order-last {
   order: 9999;
 }
+
+.u-flex {
+  display: flex;
+  box-sizing: border-box;
+  
+  * {
+    box-sizing: inherit;
+  }
+}
+
+.u-align-at-md--right {
+  @include screen-md-up {
+    text-align: right;
+  }
+}
+
+.u-space--y {
+  margin-top: $space;
+  margin-bottom: $space;
+}
+
+.u-space--double--y {
+  margin-top: $space-double;
+  margin-bottom: $space-double;
+}
+
+.u-pad--half--left {
+  padding-left: $space-half;
+}
+
+.u-pad--half--right {
+  padding-right: $space-half;
+}

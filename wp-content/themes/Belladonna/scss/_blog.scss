@@ -52,6 +52,10 @@
     }
   }
 
+  .c-blog-entry > *:first-child {
+    margin-top: 0;
+  }
+
   blockquote.wp-block-quote {
     quotes: "“" "”" "‘" "’";
     padding-left: $space-triple;
@@ -74,7 +78,7 @@
       display: inline-block;
     }
 
-    
+
     p::after {
       display: inline-block;
       padding-top: 0;
@@ -87,8 +91,26 @@
     }
   }
 
-  ul.pager {
-    padding-left: 0;
-    list-style: none;
+  hr:last-of-type {
+    margin-top: $space;
+  }
+
+  .c-blog-nav.u-flex  {
+    & > div {
+      width: 50%;
+      min-width: 50%; 
+    }
+    @include screen-sm-down {
+      flex-wrap: wrap;
+
+      & > div {
+      width: 100%;
+      min-width: 100%;
+      }
+
+      & div + div {
+        margin-top: $space;
+      }
+    }
   }
 }

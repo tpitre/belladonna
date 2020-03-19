@@ -137,6 +137,7 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'team-grid', 400, 400, true );
   add_image_size( 'team-single', 600, 600, true );
   add_image_size( 'blog-thumb', 600, 300, true );
+  add_image_size( 'blog-nav', 300, 160, true );
 }
 
 /*
