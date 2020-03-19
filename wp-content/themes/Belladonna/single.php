@@ -42,9 +42,10 @@ get_header(); ?>
           </div>
           <div class="u-width-at-md--half u-align-at-md--right u-pad-at-md--half--left">
             <?php
+              $has_next_post = get_next_post_link();
               $nextID = get_next_post()->ID;
               $page_header_image = get_field( 'page_header_image', $nextID );
-              if ($page_header_image):  
+              if ($page_header_image && $has_next_post ):  
                 $img = wp_get_attachment_image_src($page_header_image, 'blog-nav' ); ?>
                 <img src="<?php echo $img[0]; ?>" class="u-full-width" alt="next entry" />
               <?php 
