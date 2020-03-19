@@ -30,7 +30,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
-    <link href="<?php bloginfo('template_url'); ?>/css/main.css?v=0.3" rel="stylesheet" type="text/css" />
+    <link href="<?php bloginfo('template_url'); ?>/css/main.css?v=0.4" rel="stylesheet" type="text/css" />
 
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i&display=swap" rel="stylesheet">
