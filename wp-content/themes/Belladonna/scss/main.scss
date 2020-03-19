@@ -122,18 +122,6 @@ body {
 p {
 	margin: 20px 0;
 }
-ul, ol {
-
-}
-ul {
-
-}
-ol {
-
-}
-li {
-
-}
 
 .nowrap {
 	white-space: nowrap;
@@ -507,10 +495,6 @@ h1.page-title.Grey {
 .main_section_wrapper.section_249 {
 	width: 100%;
 	padding: 0;
-}
-
-body.home {
-
 }
 
 .hero_image_slider {
@@ -1143,3 +1127,10 @@ label {
 		font-family: 'Roboto Condensed', sans-serif;
 	}
 }
+
+@import '_settings.scss';
+@import '_grid.scss';
+@import '_blog.scss';
+@import '_team.scss';
+@import '_spacing.scss';
+@import '_utility.scss';

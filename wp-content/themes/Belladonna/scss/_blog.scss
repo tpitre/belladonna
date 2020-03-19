@@ -1,0 +1,137 @@
+.c-archive-post {
+  margin-bottom: $space + 10;
+
+  h2 {
+    margin-top: 0;
+    
+    & a {
+      color: $red;
+      
+      &:hover {
+        border-bottom: 1px solid $red;
+      }
+    }
+  } 
+
+  &__summary {
+    color: $grey;
+    line-height: 1.4
+  }
+}
+
+.c-blog-sidebar {
+  padding-top: $space;
+
+  &__signup {
+    margin-bottom: $space;
+
+    p { 
+      margin-top: 0;
+    }
+  }
+
+  &__title {
+    margin-top: $space-double;
+  }
+  &__title:first-of-type {
+    margin-top: 80px;
+  }
+
+  &__links li {
+    margin-bottom: $space-half;
+  }
+}
+
+.c-blog {
+  & figure {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    & img {
+      width: 100%;
+    }
+  }
+
+  .c-blog-entry > *:first-child {
+    margin-top: 0;
+  }
+
+  blockquote.wp-block-quote {
+    quotes: "“" "”" "‘" "’";
+    padding-left: $space-triple;
+    padding-right: $space;
+    font-size: 1.75rem;
+    color: #1D1A20;
+
+    &::before {
+      display: block;
+      margin-left: -$space - 10;
+      margin-bottom: -$space-triple - 10;
+      padding-bottom: 0;
+      font-family: serif;
+      font-size: 48px;
+      color: #57BF9C;
+      content: open-quote;
+    }
+
+    p {
+      display: inline-block;
+    }
+
+
+    p::after {
+      display: inline-block;
+      padding-top: 0;
+      line-height: 0.2;
+      transform: translateY(12px);
+      font-family: serif;
+      font-size: 48px;
+      color: #57BF9C;
+      content: close-quote;  
+    }
+  }
+
+  hr:last-of-type {
+    margin-top: $space;
+  }
+
+  .c-blog-nav.u-flex  {
+    & > div {
+      width: 50%;
+      min-width: 50%; 
+
+      &:hover {
+        img {
+          filter: brightness(110%) saturate(1.15);
+        }
+        a {
+          border-bottom-color: #DE6055;
+        }
+      }
+    }
+    @include screen-sm-down {
+      flex-wrap: wrap;
+
+      & > div {
+      width: 100%;
+      min-width: 100%;
+      }
+
+      & div + div {
+        margin-top: $space;
+      }
+    }
+  }
+
+  .o-post-nav-img {
+    border: 0;
+    transition: all .35s ease;
+    filter: brightness(100%);
+    transform: translateZ(0);
+
+  }
+
+  .o-post-nav-link a {
+    border-bottom: 1px solid transparent;
+  } 
+}

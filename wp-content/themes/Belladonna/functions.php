@@ -1,7 +1,11 @@
 <?php
-// Shortcodes
+// CUSTOM POST TYPES TEAM & BLOG ADDITIONS
+require_once('library/post-types.php');
+require_once('library/menu-order.php');
 require_once('library/shortcodes.php');
 
+// MOVE YOAST TO BOTTOM OF EDIT SCREEN
+add_filter( 'wpseo_metabox_prio', function() { return 'low'; } );
 
 // Disable the Admin Bar.
 add_filter( 'show_admin_bar', '__return_false' );
@@ -34,6 +38,14 @@ function my_acf_json_load_point( $paths ) {
     // return
     return $paths;
 }
+
+// THIS GETS THE FIRST PARAGRAPH OF THE POST AND SETS IT AS THE EXCERPT
+function bd_excerpt( $the_post ) {
+	$content  = apply_filters( 'the_content', get_the_content() );
+	$the_post = substr( $content, 0, strpos( $content, '</p>' ) + 4 );
+	return $the_post;
+}
+add_filter( 'wp_trim_excerpt', 'bd_excerpt', 10, 1 );
 
 /**
  *
@@ -117,16 +129,16 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 if ( function_exists( 'add_image_size' ) ) {
-  add_image_size( 'home_slide-medium', 720, 480, true); // Used for medium home page slides and background images
-  add_image_size( 'home_slide-large', 1440, 960, true); // Used for large home page slides and background images
-  add_image_size( 'header-large', 1440, 730, true); // Used for large page intro images
-  add_image_size( 'item-medium', 460, 400, true); // Used for booking item images
-  add_image_size( 'block-medium', 936, 542, true); // Used for block images
+  add_image_size( 'home_slide-medium', 720, 480, true ); // Used for medium home page slides and background images
+  add_image_size( 'home_slide-large', 1440, 960, true ) ; // Used for large home page slides and background images
+  add_image_size( 'header-large', 1440, 730, true ); // Used for large page intro images
+  add_image_size( 'item-medium', 460, 400, true ); // Used for booking item images
+	add_image_size( 'block-medium', 936, 542, true ); // Used for block images
+	add_image_size( 'team-grid', 400, 400, true );
+  add_image_size( 'team-single', 600, 600, true );
+  add_image_size( 'blog-thumb', 600, 300, true );
+  add_image_size( 'blog-nav', 300, 160, true );
 }
-
-
-
-
 
 /*
 | -------------------------------------------------------------------
@@ -153,17 +165,17 @@ function bootstrapwp_content_nav( $nav_id ) {
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 <ul class="pager">
-		<?php previous_post_link( '<li class="previous">%link</li>',  _x( '', 'Previous post link', 'bootstrapwp' ) . '</span> Previous Project' ); ?>
-		<?php next_post_link( '<li class="next">%link</li>', 'Next Project ' . _x( '', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
+		<?php previous_post_link( '<li class="previous">%link</li>',  _x( '', 'Previous post link', 'bootstrapwp' ) . '</span> Previous' ); ?>
+		<?php next_post_link( '<li class="next">%link</li>', 'Next ' . _x( '', 'Next post link', 'bootstrapwp' ) . '</span>' ); ?>
 </ul>
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
 <ul class="pager">
 		<?php if ( get_next_posts_link() ) : ?>
-		<li class="next"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'bootstrapwp' ) ); ?></li>
+		<li class="next"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older', 'bootstrapwp' ) ); ?></li>
 		<?php endif; ?>
 
 		<?php if ( get_previous_posts_link() ) : ?>
-		<li class="previous"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></li>
+		<li class="previous"><?php previous_posts_link( __( 'Newer <span class="meta-nav">&rarr;</span>', 'bootstrapwp' ) ); ?></li>
 		<?php endif; ?>
 </ul>
 	<?php endif; ?>
@@ -321,92 +333,3 @@ add_filter( 'attachment_link', 'bootstrapwp_enhanced_image_navigation' );
 
 // Fix for safari date field.
 add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
-
-
-/*
-| -------------------------------------------------------------------
-| Registering promo post type
-| -------------------------------------------------------------------
-|
-*/
-function post_type_promo() {
-	$supports = array(
-	'title', // post title
-	'editor', // post content
-	'author', // post author
-	'thumbnail', // featured images
-	'excerpt', // post excerpt
-	'custom-fields', // custom fields
-	'revisions', // post revisions
-	);
-	$labels = array(
-	'name' => _x('promo', 'plural'),
-	'singular_name' => _x('promo', 'singular'),
-	'menu_name' => _x('Promo', 'admin menu'),
-	'name_admin_bar' => _x('Promo', 'admin bar'),
-	'add_new' => _x('Add New', 'add new'),
-	'add_new_item' => __('Add New promo'),
-	'new_item' => __('New promo'),
-	'edit_item' => __('Edit promo'),
-	'view_item' => __('View promo'),
-	'all_items' => __('All promo'),
-	'search_items' => __('Search promo'),
-	'not_found' => __('No promo found.'),
-	);
-	$args = array(
-	'show_in_rest' => true,
-	'supports' => $supports,
-	'labels' => $labels,
-	'public' => true,
-	'publicly_queryable' => true,
-	'query_var' => true,
-	'rewrite' => array('slug' => 'promo'),
-	'has_archive' => true,
-	'hierarchical' => false,
-	);
-	register_post_type('promo', $args);
-}
-add_action('init', 'post_type_promo');
-
-/*
-| -------------------------------------------------------------------
-| Registering footer post type
-| -------------------------------------------------------------------
-|
-*/
-function post_type_footer() {
-	$supports = array(
-	'title', // post title
-	'author', // post author
-	'custom-fields', // custom fields
-	'revisions', // post revisions
-	);
-	$labels = array(
-	'name' => _x('Footer', 'plural'),
-	'singular_name' => _x('Footer', 'singular'),
-	'menu_name' => _x('Footer', 'admin menu'),
-	'name_admin_bar' => _x('Footer', 'admin bar'),
-	'add_new' => _x('Add New', 'add new'),
-	'add_new_item' => __('Add New Footer'),
-	'new_item' => __('New Footer'),
-	'edit_item' => __('Edit Footer'),
-	'view_item' => __('View Footer'),
-	'all_items' => __('All Footer'),
-	'search_items' => __('Search Footer'),
-	'not_found' => __('No Footer found.'),
-	);
-	$args = array(
-	'show_in_rest' => true,
-	'supports' => $supports,
-	'labels' => $labels,
-	'public' => true,
-	'query_var' => true,
-	'has_archive' => false,
-	'hierarchical' => false,
-	);
-	register_post_type('footer', $args);
-}
-add_action('init', 'post_type_footer');
-
-
-
